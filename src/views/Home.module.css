@@ -1,0 +1,31 @@
+.cardSpace {
+  width: 400px;
+  height: 200px;
+}
+
+.fullScreen {
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+  display: flex; /* Para alinear contenido si es necesario */
+  flex-direction: column; /* Alineación vertical */
+}
+
+.loginButton {
+  display: inline-block;
+  background-color: #6f42c1;
+  border: 1px solid #6f42c1;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.loginButton:hover {
+  background-color: #643faa;
+  border-color: #643faa;
+  color: white;
+}
