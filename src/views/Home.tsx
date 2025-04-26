@@ -1,45 +1,55 @@
 import mockupDocut from "../assets/mockupDocut.svg";
-import { Card } from "antd";
 import styles from "./Home.module.css";
-import { Container } from "react-bootstrap";
 import { NabBarDoCut } from "../components/NavBarDoCut";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 
 export const Home = () => {
   return (
     <div className={styles.fullScreen}>
       <NabBarDoCut />
-      <Container fluid className={styles.bentoContainer}>
-        <div className={styles.bentoItem}>
-          <Card className={`${styles.cardSpace} ${styles.cardOne}`}>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <h3 style={{ color: "#ffffff", fontWeight: "bold" }}>
-                Descarga DoCut!
-              </h3>
-              <p
-                style={{
-                  color: "#ffffff",
-                  fontSize: "20px",
-                  marginTop: "25px",
-                }}
-              >
-                Descarga nuestra aplicación y prueba la mejor forma de mantener
-                tu negocio ordenado.
-              </p>
-            </Link>
-          </Card>
+      <div className={styles.container}>
+        <div className={styles.col_left}>
+          <Link to="/" className={`${styles.row} ${styles.row1}`}>
+            <h2
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              Descarga Nuestra App!!{" "}
+              <FontAwesomeIcon icon={faSquareArrowUpRight} />{" "}
+            </h2>
+            <p
+              style={{
+                fontSize: "20px",
+                textAlign: "center",
+                paddingTop: "10px",
+              }}
+            >
+              Al crear una cuenta de administrador, puedes manejar tus servicios
+              como estilista y tener un mejor orden gracias a nuestra app y su
+              ambiente de escritorio web.
+              <br />
+              <span>DoCut La mejor forma de agendar citas.</span> <br />
+              <span>Bonito, Rápido y Seguro.</span> <br />
+            </p>
+            <img
+              src={mockupDocut}
+              alt="mockup"
+              className={styles.rotateImage}
+            />
+          </Link>
+          <div className={`${styles.row} ${styles.row2}`}></div>
         </div>
-        <div className={styles.bentoItem}>
-          <Card className={`${styles.cardSpace} ${styles.cardTwo}`}>
-            <h3>View our blog</h3>
-          </Card>
+        <div className={styles.col_right}>
+          <div className={`${styles.row} ${styles.top}`}></div>
+          <div className={`${styles.row} ${styles.bottom}`}></div>
         </div>
-        <div className={styles.bentoItem}>
-          <Card className={`${styles.cardSpace} ${styles.cardThree}`}>
-            <h3>About us</h3>
-          </Card>
-        </div>
-      </Container>
+      </div>
     </div>
   );
 };
