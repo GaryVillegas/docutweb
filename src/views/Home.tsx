@@ -1,5 +1,5 @@
-import mockupDocut from "../assets/mockupDocut.svg";
-import styles from "./Home.module.css";
+import mockupDocut from "../assets/mockupDocut.svg"; //importa la imagen
+import styles from "./Home.module.css"; //Este es un archivo css
 import { NabBarDoCut } from "../components/NavBarDoCut";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
