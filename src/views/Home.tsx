@@ -1,9 +1,13 @@
 import mockupDocut from "../assets/mockupDocut.svg"; //importa la imagen
+import imgquien from "../assets/imgfin.jpeg";
+import img from "../assets/imgcreada.jpeg";
+import contac from "../assets/contacto2.png";
 import styles from "./Home.module.css"; //Este es un archivo css
 import { NabBarDoCut } from "../components/NavBarDoCut";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+
 
 export const Home = () => {
   return (
@@ -43,11 +47,54 @@ export const Home = () => {
               className={styles.rotateImage}
             />
           </Link>
-          <div className={`${styles.row} ${styles.row2}`}></div>
+          <div className={`${styles.quien} ${styles.rowquien}`}>
+  <h2 className={styles.tituloCard}>Quiénes somos.</h2>
+  <p className={styles.textoCard}>
+    Tu estilo comienza aquí. Revisa nuestros servicios y reserva al instante.
+  </p>
+   <div className={styles.marcoImagenquien}>
+  <img
+    src={img}
+    alt="Quiénes somos"
+    className={styles.imagenCard}
+  />
+  </div>
+</div>
         </div>
         <div className={styles.col_right}>
-          <div className={`${styles.row} ${styles.top}`}></div>
-          <div className={`${styles.row} ${styles.bottom}`}></div>
+          <div className={`${styles.descubre} ${styles.tendencia}`}>
+  <div className={styles.textoTendencia}>
+    <h2 className={styles.tituloCard}>Descubre las tendencias.</h2>
+    <p className={styles.textoCard}>
+      Tu estilo comienza aquí. Revisa nuestros servicios y reservas al instante.
+    </p>
+  </div>
+  <div className={styles.marcoImagen}>
+    <img
+      src={imgquien}
+      alt="imagen"
+      className={styles.imagen}
+    />
+  </div>
+</div>
+
+
+          <Link to="/" className={`${styles.row} ${styles.bottom}`}>
+  <div className={styles.textoTendencia}>
+    <h2 className={styles.tituloCard}>Contáctanos.</h2>
+    <p className={styles.textoCard}>
+      Agenda una cita o escríbenos para más información.
+    </p>
+  </div>
+  <div className={styles.marcoImagen}>
+    <img
+      src={contac} 
+      alt="Contáctanos"
+      className={styles.imagen}
+    />
+  </div>
+</Link>
+
         </div>
       </div>
     </div>

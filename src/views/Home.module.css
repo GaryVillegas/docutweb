@@ -8,14 +8,15 @@
 .container {
   background-color: white;
   width: 100%;
-  height: 100%;
+  height: 90%;
   padding: 1em;
   display: flex;
   gap: 1em;
 }
 
+
 .col_left {
-  flex: 2;
+  flex: 1.4;
   border-radius: 2em;
   display: flex;
   flex-direction: row;
@@ -45,13 +46,159 @@
   position: relative;
 }
 
-.row2 {
+
+.quien {
   background-color: #6f42c1;
+  color: white;
+  border-radius: 1.5em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  width: 350px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 1em; 
 }
 
-.top {
-  background-color: #6f42c1;
+
+.tituloCard {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
+
+
+.textoCard {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+.marcoImagenquien {
+  background-color:transparent;
+  
+  border-radius: 1em;
+  
+  width: 320px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute; 
+  bottom: -50px;     
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  bottom: -280px;
+}
+
+.imagenCard {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;
+}
+
+.descubre {
+  background-color: #6f42c1
+;
+  color: white;
+  border-radius: 1.5em;
+  max-width: 450px;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  gap: 1.5em;
+}
+
+.tendencia {
+  width: 100%;
+}
+
+.textoTendencia {
+  flex: 1;
+  text-align: left;
+}
+
+.tituloCard {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.textoCard {
+  font-size: 1em;
+  line-height: 1.4;
+  padding-right: 1em;
+}
+
+.marcoImagen {
+  background-color: transparent;
+  border-radius: 1em;
+  width: 200px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   position: absolute; 
+  right: 40px; 
+  flex-shrink: 0;
+}
+
+.imagen {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1.5em;
+}
+
+
+.row.bottom {
+  background-color: #6f42c1;
+  color: white;
+  border-radius: 1.5em;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  gap: 1.5em;
+  max-width: 450px;
+  text-decoration: none;
+}
+
+
+
+.marcoImagen:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.quien:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.row1:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+
+
 .bottom {
   background-color: #6f42c1;
 }
@@ -81,3 +228,83 @@
   border-color: #643faa;
   color: white;
 }
+/* 1. Box Model (modelo de caja)
+width: define el ancho del elemento.
+
+height: define el alto.
+
+padding: espacio interno entre el contenido y el borde.
+
+margin: espacio externo, separa el elemento de otros.
+
+border: borde del elemento.
+
+ 2. Positioning (posicionamiento)
+position: static: (por defecto) el elemento fluye de forma natural en el documento.
+
+position: relative: se mueve respecto a su posición original.
+
+position: absolute: se posiciona respecto al padre más cercano con relative.
+
+position: fixed: se posiciona respecto a la pantalla, no se mueve al hacer scroll.
+
+top, right, bottom, left: indican cuántos píxeles alejarse del borde definido (solo si no es static).
+
+ 3. Flexbox (distribución flexible)
+display: flex: activa Flexbox.
+
+flex-direction: define si los elementos se organizan en fila (row) o columna (column).
+
+justify-content: alinea los elementos en el eje principal (horizontal si es row).
+
+valores: flex-start, center, space-between, space-around, etc.
+
+align-items: alinea en el eje cruzado (vertical si es row).
+
+gap: espacio entre los hijos del flex container.
+
+ 4. Color y fondo
+background-color: color de fondo del elemento.
+
+color: color del texto.
+
+background-image: imagen de fondo.
+
+background-size: cover: hace que la imagen cubra todo el contenedor.
+
+opacity: define transparencia (0 = invisible, 1 = opaco).
+
+ 5. Texto
+font-size: tamaño de fuente.
+
+font-weight: grosor de la fuente (normal, bold, 100-900).
+
+text-align: alineación del texto (left, center, right).
+
+line-height: altura entre líneas de texto.
+
+6. Bordes y esquinas
+border: define grosor, tipo y color del borde.
+
+Ej: 2px solid red
+
+border-radius: redondea las esquinas.
+
+Ej: border-radius: 10px → esquinas redondas.
+
+ 7. Imágenes
+object-fit: cover: recorta la imagen para llenar el contenedor sin deformarse.
+
+object-fit: contain: ajusta la imagen para que quepa entera sin recorte.
+
+ 8. Z-index
+z-index: determina cuál elemento va delante si se superponen (solo funciona con position distinto de static).
+
+Mayor valor = más arriba.
+
+ 9. Transiciones y animaciones
+transition: suaviza los cambios entre estados.
+
+Ej: transition: transform 0.3s ease;
+
+transform: scale(1.05): agranda un poco el elemento. */
