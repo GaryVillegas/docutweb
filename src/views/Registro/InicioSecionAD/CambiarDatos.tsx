@@ -23,12 +23,12 @@ export const CambiarDatos = () => {
         if (docSnap.exists()) {
           const data = docSnap.data();
 
-          // Soporte para userInfo o nombre/apellido
+          //  userInfo firebaseee
           if (data.userInfo) {
             setFormulario({
               nombre: data.userInfo.name || "",
               apellido: data.userInfo.lastName || "",
-              correo: auth.currentUser.email || "", // correo viene de auth
+              correo: auth.currentUser.email || "", 
               rut: data.userInfo.rut || "",
             });
           } else {
@@ -56,13 +56,13 @@ export const CambiarDatos = () => {
         const uid = auth.currentUser.uid;
         const docRef = doc(db, "users", uid);
 
-        // Update segun el formato que tenga (aquí ejemplo con userInfo)
+        // userinfo guardarr
         await updateDoc(docRef, {
           userInfo: {
             name: formulario.nombre,
             lastName: formulario.apellido,
             rut: formulario.rut,
-            // el campo type no se cambia aquí, se mantiene
+            
           },
         });
 
@@ -77,10 +77,10 @@ export const CambiarDatos = () => {
 
   return (
     <div className={styles.layout}>
-      {/* Sidebar */}
+      {}
       <MenuLateral />
 
-      {/* Contenido principal */}
+      {}
       <main className={styles.main}>
         <div className={styles.content}>
           <h1 className={styles.title}>Datos de usuario</h1>

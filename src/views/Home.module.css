@@ -193,7 +193,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 🔥 centra el texto verticalmente */
+  justify-content: center;
   height: 100%;
 }
 

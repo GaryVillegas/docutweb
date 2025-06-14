@@ -7,7 +7,7 @@ export const Citas = () => {
   const [citas, setCitas] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Cargar citas al iniciar
+  
   useEffect(() => {
     cargarCitas();
   }, []);
@@ -17,7 +17,7 @@ const cargarCitas = async () => {
   setLoading(true);
   const citasFirebase = await obtenerCitas();
 
-  // Por cada cita, obtener el nombre del servicio
+  // para obtener e nombre del sevicio(cita)
  const citasConNombreServicio = await Promise.all(
   citasFirebase.map(async (cita) => {
     const servicio = await obtenerServicioPorId(cita.idServicio);
@@ -35,7 +35,7 @@ const cargarCitas = async () => {
     if (!confirmacion) return;
 
     await eliminarCita(id);
-    // Actualizar citas después de eliminar
+    
     await cargarCitas();
   };
 
@@ -69,8 +69,8 @@ const cargarCitas = async () => {
                     <td>
                       {cita.nombreUsuario || "-"} {cita.apellidoUsuario || "-"}
                     </td>
-                    <td>{cita.fechaSeleccionada || "-"}</td> {/* AQUI pones la fecha */}
-                    <td>{cita.horaSeleccionada || "-"}</td> {/* AQUI pones la hora */}
+                    <td>{cita.fechaSeleccionada || "-"}</td> 
+                    <td>{cita.horaSeleccionada || "-"}</td> 
                     <td>{cita.nombreServicio|| "-"}</td>
 
                     <td>${cita.precio}</td>
