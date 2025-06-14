@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #6f42c1;
+   background: linear-gradient(to bottom, #ede7f6, #d1c4e9); /* morado claro */
 
 }
 

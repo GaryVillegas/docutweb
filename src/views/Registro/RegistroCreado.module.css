@@ -1,7 +1,7 @@
 .fullScreen {
   width: 100vw;
   height: 100vh;
-  background-color: #f4f4f4;
+  background: linear-gradient(to bottom, #ede7f6, #d1c4e9); /* morado claro */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +36,8 @@
 }
 
 .container {
+  text-align: center;
+  padding: 2rem;
   position: relative;
   width: 90%;
   max-width: 500px;
@@ -44,7 +46,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  
 }
 
 .titulo {

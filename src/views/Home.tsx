@@ -7,6 +7,12 @@ import { NabBarDoCut } from "../components/NavBarDoCut";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import { FaUserCog } from "react-icons/fa";
+import { FaSearch, FaCreditCard } from "react-icons/fa";
+import { FaCalendarCheck, FaCut, FaMobileAlt } from "react-icons/fa";
+
+
+
 
 
 export const Home = () => {
@@ -37,9 +43,8 @@ export const Home = () => {
               Al crear una cuenta de administrador, puedes manejar tus servicios
               como estilista y tener un mejor orden gracias a nuestra app y su
               ambiente de escritorio web.
-              <br />
-              <span>DoCut La mejor forma de agendar citas.</span> <br />
-              <span>Bonito, Rápido y Seguro.</span> <br />
+              
+              
             </p>
             <img
               src={mockupDocut}
@@ -48,52 +53,68 @@ export const Home = () => {
             />
           </Link>
           <div className={`${styles.quien} ${styles.rowquien}`}>
-  <h2 className={styles.tituloCard}>Quiénes somos.</h2>
-  <p className={styles.textoCard}>
-    Tu estilo comienza aquí. Revisa nuestros servicios y reserva al instante.
-  </p>
-   <div className={styles.marcoImagenquien}>
-  <img
-    src={img}
-    alt="Quiénes somos"
-    className={styles.imagenCard}
-  />
-  </div>
-</div>
+                <h2 className={styles.tituloCard}><h2 className={styles.tituloCard}>
+                <FaCalendarCheck style={{ marginRight: "8px" }} />
+                Reserva en segundos tu barbería favorita
+                <FaCut style={{ margin: "0 8px" }} />
+                desde tu celular
+                <FaMobileAlt style={{ marginLeft: "8px" }} />
+              </h2>
+              
+              </h2>
+              
+ 
+                <div className={styles.marcoImagenquien}>
+                <img
+                  src={img}
+                  alt="Quiénes somos"
+                  className={styles.imagenCard}
+                />
+                </div>
+          </div>
         </div>
         <div className={styles.col_right}>
           <div className={`${styles.descubre} ${styles.tendencia}`}>
-  <div className={styles.textoTendencia}>
-    <h2 className={styles.tituloCard}>Descubre las tendencias.</h2>
-    <p className={styles.textoCard}>
-      Tu estilo comienza aquí. Revisa nuestros servicios y reservas al instante.
-    </p>
-  </div>
-  <div className={styles.marcoImagen}>
-    <img
-      src={imgquien}
-      alt="imagen"
-      className={styles.imagen}
-    />
-  </div>
-</div>
+              <div className={styles.textoTendencia}>
+                <h2 className={styles.tituloCard}><h2 className={styles.tituloCard}>
+              <FaSearch style={{ marginRight: "8px" }} />
+              Descubre las tendencias{" "}
+              <FaCreditCard style={{ marginLeft: "8px" }} />
+            </h2>
+              </h2>
+                <p className={styles.textoCard}>
+                  Tu estilo comienza aquí. Revisa nuestros servicios y reservas al instante y realiza tus pagos de forma segura.
+                </p>
+              </div>
+                  <div className={styles.marcoImagen}>
+                    <img
+                      src={imgquien}
+                      alt="imagen"
+                      className={styles.imagen}
+                    />
+                  </div>
+              </div>
 
 
           <Link to="/" className={`${styles.row} ${styles.bottom}`}>
-  <div className={styles.textoTendencia}>
-    <h2 className={styles.tituloCard}>Contáctanos.</h2>
-    <p className={styles.textoCard}>
-      Agenda una cita o escríbenos para más información.
-    </p>
-  </div>
-  <div className={styles.marcoImagen}>
-    <img
-      src={contac} 
-      alt="Contáctanos"
-      className={styles.imagen}
-    />
-  </div>
-</Link>
+                <div className={styles.textoTendencia}>
+                  <h2 className={styles.tituloCard}><h2 className={styles.tituloCard}>
+                <FaUserCog style={{ marginRight: "10px" }} />
+                Administra bien tu barbería
+              </h2>
+              </h2>
+                  <p className={styles.textoCard}>
+                    Gestion de citas y negocios
+                  </p>
+                </div>
+              <div className={styles.marcoImagen}>
+                <img
+                  src={contac} 
+                  alt="Contáctanos"
+                  className={styles.imagen}
+                />
+              </div>
+              </Link>
 
         </div>
       </div>

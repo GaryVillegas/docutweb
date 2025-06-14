@@ -7,6 +7,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(to bottom, #ede7f6, #d1c4e9); /* morado claro */
 }
 
 .fondoCurvo {

@@ -18,31 +18,21 @@ export const RegistroCreado = () => {
       <div className={styles.fondoCurvo}></div>
 
       <div className={styles.container}>
-           <div className={styles.pasos}>
-  <div className={styles.paso}>
-    <span className={styles.punto1}></span>
-    <span className={styles.etiquetaPasoInvisible}>.</span>
-  </div>
-  <div className={styles.paso}>
-    <span className={styles.punto1}></span>
-    <span className={styles.etiquetaPasoInvisible}>.</span>
-  </div>
-  <div className={styles.paso}>
-    <span className={styles.punto1}></span>
-     <span className={styles.etiquetaPaso}>Datos Registrados </span>
-  </div>
-</div>
+        
 
 
 
 
-        <h2 className={styles.titulo}>Tu negocio se ha <br /> creado</h2>
+        <h2 className={styles.titulo}>Tu negocio se ha  creado</h2>
         <img
       src={imgregistrado}
       alt="imagen"
       className={styles.imagen}
     />
-        <p>Para validar al 100% tu negocio, ingresa desde tu app para terminar el proceso completo.</p>
+        <p>
+  Para validar al 100% tu negocio, ingresa desde tu app para terminar el proceso completo y comenzar a gestionar tus servicios.
+</p>
+
         <div className={styles.botones}>
           
           <button className={styles.btnSiguiente} onClick={() => navigate("/login")}>
