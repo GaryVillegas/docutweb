@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loginButton {
+  display: inline-block;
+  background-color: #6f42c1;
+  border: 1px solid #6f42c1;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, border-color 0.3s;
+}
