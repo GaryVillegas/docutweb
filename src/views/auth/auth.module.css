@@ -1,16 +1,18 @@
 .container {
   background-color: #e4d4ff;
-  height: 100vh;
+  min-height: 100vh; /* Cambiado a min-height para asegurar que al menos cubra la pantalla */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem; /* Añadido padding para dispositivos más pequeños */
 }
 
 .card {
   background: white;
   padding: 2rem;
   border-radius: 16px;
-  width: 400px;
+  width: 100%; /* Cambiado a 100% para que ocupe todo el ancho disponible */
+  max-width: 400px; /* Añadido max-width para que no se vea demasiado grande en pantallas grandes */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,4 +88,30 @@
 
 .link:hover {
   text-decoration: underline;
+}
+
+/* Estilos para el botón de retroceso */
+.backButton {
+  background-color: var(--Primary-Color) !important;
+  border-color: var(--Primary-Color) !important;
+  position: absolute; /* Posicionamiento absoluto */
+  top: 1rem; /* Margen superior */
+  left: 1rem; /* Margen izquierdo */
+}
+
+.backButton:hover {
+  background-color: var(--Secondary-Color) !important;
+  border-color: var(--Primary-Color) !important;
+  color: var(--Black-Color) !important;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem; /* Reduce el padding en pantallas pequeñas */
+  }
+
+  .title {
+    font-size: 2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
 }
