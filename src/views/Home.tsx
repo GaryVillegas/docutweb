@@ -1,5 +1,10 @@
-//import React from 'react'
+import { NabBarDoCut } from "../components/NavBarDoCut";
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <NabBarDoCut />
+      Home
+    </div>
+  );
 };

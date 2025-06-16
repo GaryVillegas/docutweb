@@ -1,4 +1,4 @@
-import { FIREBASE_DB } from "../firebase";
+import { FIREBASE_DB } from "../firebaseConfig";
 import {
   doc,
   setDoc,
@@ -10,10 +10,10 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { userData, userInfo } from "../types/user.type";
-import { storeInfo } from "../types/store.type";
-import { service, serviceData } from "../types/service.type";
-import { date } from "../types/date.type";
+import type { userData, userInfo } from "../types/user.type";
+import type { storeInfo } from "../types/store.type";
+import type { service, serviceData } from "../types/service.type";
+import type { date } from "../types/date.type";
 
 class StoreService {
   //Funciones de creacion

@@ -9,22 +9,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 
-export const Login = () => {
+export const Register = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const { showMessage } = useMessageContext();
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      await authenticationService.authentication(email, password);
+      await authenticationService.registration(email, password);
       navigate("/home");
     } catch (error: any) {
       showMessage(`${error.message}`, "error");
     }
   };
 
-  const handleLoginRegister = async () => {
+  const handleGoogleRegister = async () => {
     try {
       await authenticationService.loginWithGoogle();
       navigate("/home");
@@ -53,7 +53,7 @@ export const Login = () => {
           />{" "}
           DoCut
         </h1>
-        <h2 className={styles.title}>Inicio Sesión</h2>
+        <h2 className={styles.title}>Crear Cuenta</h2>
 
         <input
           type="email"
@@ -70,19 +70,19 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className={styles.button} onClick={handleLogin}>
-          Iniciar sesión
+        <button className={styles.button} onClick={handleRegister}>
+          Crear Cuenta
         </button>
 
-        <p className={styles.or}>o inicia sesión con</p>
-        <button className={styles.googleBtn} onClick={handleLoginRegister}>
+        <p className={styles.or}>o registrate con</p>
+        <button className={styles.googleBtn} onClick={handleGoogleRegister}>
           <img src={googleLogo} alt="Google" />
         </button>
 
         <p className={styles.register}>
-          ¿No tienes una cuenta?{" "}
-          <a href="/register" className={styles.link}>
-            Regístrate
+          ¿Ya tienes una cuenta?{" "}
+          <a href="/login" className={styles.link}>
+            Inicia sesion
           </a>
         </p>
       </div>
