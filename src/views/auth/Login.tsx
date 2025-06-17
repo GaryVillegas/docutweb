@@ -34,7 +34,7 @@ export const Login = () => {
   };
 
   const goHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (
