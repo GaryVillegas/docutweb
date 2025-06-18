@@ -50,7 +50,7 @@ export const UserInfo = () => {
   const addUserInfo = () => {
     return (
       <>
-        <div>Información de usuario :)</div>
+        <div>Información de usuario</div>
       </>
     );
   };
@@ -63,10 +63,11 @@ export const UserInfo = () => {
     return <div>Categorias de tienda</div>;
   };
 
+  const stepsContent = [addUserInfo(), storeInfo(), chooseCategory()];
   const steps = [
-    { title: "Tu información", content: addUserInfo },
-    { title: "Infórmanos sobre tu negocio", content: storeInfo },
-    { title: "Categorías", content: chooseCategory },
+    { title: "Tu información" },
+    { title: "Infórmanos sobre tu negocio" },
+    { title: "Categorías" },
   ];
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
   if (loading) return <Spin fullscreen={true} size="large" />;
@@ -74,6 +75,7 @@ export const UserInfo = () => {
     <div className={styles.mainContainer}>
       <div className={styles.containerUserInfo}>
         <Steps size="default" current={currentSlide} items={items} />
+        <div>{stepsContent[currentSlide]}</div>
         <FooterButtons />
       </div>
     </div>
