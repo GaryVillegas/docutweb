@@ -3,7 +3,7 @@ import { Web } from "./../views/Web";
 import { Login } from "../views/auth/Login";
 import { Home } from "../views/Home";
 import { Register } from "../views/auth/Register";
-import PrivateRoute from "../views/auth/PrivateRoute";
+import PrivateRoute from "../context/PrivateRoute";
 import { UserInfo } from "../views/auth/UserInfo";
 
 export const AppRouter = () => {
