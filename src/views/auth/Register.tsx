@@ -18,7 +18,7 @@ export const Register = () => {
   const handleRegister = async () => {
     try {
       await authenticationService.registration(email, password);
-      navigate("/home");
+      navigate("/UserInfo");
     } catch (error: any) {
       showMessage(`${error.message}`, "error");
     }
@@ -27,14 +27,14 @@ export const Register = () => {
   const handleGoogleRegister = async () => {
     try {
       await authenticationService.loginWithGoogle();
-      navigate("/home");
+      navigate("/UserInfo");
     } catch (error: any) {
       showMessage(`${error.message}`, "error");
     }
   };
 
   const goHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (

@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  deleteUser,
 } from "firebase/auth";
 import { FIREBASE_AUTH } from "../firebaseConfig";
 
@@ -70,6 +71,15 @@ class AuthenticationService {
       await signOut(FIREBASE_AUTH);
     } catch (error) {
       console.error("Error al cerrar sesion: ", error);
+      throw error;
+    }
+  }
+
+  async deleteAccount(user: any) {
+    try {
+      await deleteUser(user);
+    } catch (error) {
+      console.error("Error al eliminar un usuario: ", error);
       throw error;
     }
   }
