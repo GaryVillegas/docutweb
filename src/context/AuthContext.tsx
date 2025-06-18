@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { FIREBASE_AUTH } from "../firebaseConfig";
 import type { AuthContextType } from "../types/authContext.type";
+import { Navigate } from "react-router-dom";
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
@@ -20,6 +21,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
     return () => unsub();
   }, []);
+
+  if (user) {
+    <Navigate to={"/home"} replace />;
+  }
 
   return (
     <AuthContext.Provider value={{ user, loading }}>
