@@ -117,18 +117,119 @@
 }
 
 /*CSS de UserInfo*/
+/* Contenedor principal */
 .mainContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa toda la altura de la ventana */
+  height: 100vh;
   background-color: var(--Secondary-Color);
 }
 
+
 .containerUserInfo {
-  width: 90%;
-  height: 80%;
-  background-color: var(--White-Color);
+  background-color: white !important;
+  padding: 2rem;
   border-radius: 20px;
-  padding: 20px;
+  width: 100%;
+  max-width: 1300px;
+  min-height: 600px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+
+.tituloinfousuario {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.containerUserInfo input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  font-size: 0.95rem;
+}
+
+/* Botones  */
+.containerUserInfo button {
+  width: 300px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover botón */
+.containerUserInfo button:hover {
+  background-color: #6b21a8;
+}
+
+/* Contenedor de botones si necesitas separarlos */
+.footerButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* botón de cancelar  */
+.cancelButton {
+  background-color: #a855f7;
+}
+
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.categoryButton {
+  background-color: var(--Secondary-Color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem; 
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem; 
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: normal;
+  word-break: break-word;
+  min-height: 44px; 
+  margin: 0.25rem;
+}
+
+
+
+.categoryButton:hover {
+  background-color: #7c3aed;
+}
+
+.selectedCategory {
+  background-color: white;
+  color: #7c3aed;
+  border: 2px solid #7c3aed;
+}
+

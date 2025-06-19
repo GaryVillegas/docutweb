@@ -103,8 +103,7 @@ export const UserInfo = () => {
 
   const FooterButtons = () => {
     if (!user) return;
-    return (
-      <div>
+     {/*agrege styles a los botones <div>
         {currentSlide < steps.length - 1 && (
           <button onClick={() => next()}>Siguiente</button>
         )}
@@ -115,9 +114,35 @@ export const UserInfo = () => {
         {currentSlide === 0 && (
           <button onClick={() => cancel(user)}>Cancelar</button>
         )}
-      </div>
-    );
-  };
+      </div>asi estaba*/}
+    return (
+        
+
+      <div className={styles.footerButtons}>
+          {currentSlide < steps.length - 1 && (
+            <button className={styles.footerButton} onClick={next}>
+              Siguiente
+            </button>
+          )}
+          {currentSlide === steps.length - 1 && (
+            <button className={styles.footerButton} onClick={() => handleSubmit(user.uid)}>
+              Terminar
+            </button>
+          )}
+          {currentSlide > 0 && (
+            <button className={styles.footerButton} onClick={prev}>
+              Volver
+            </button>
+          )}
+          {currentSlide === 0 && (
+            <button className={`${styles.footerButton} ${styles.cancelButton}`} onClick={() => cancel(user)}>
+              Cancelar
+            </button>
+          )}
+        </div>
+
+            );
+          };
 
   const cancel = async (user: any) => {
     try {
@@ -132,8 +157,10 @@ export const UserInfo = () => {
     if (!userInfo) return;
     return (
       <>
-        <div>Información de usuario</div>
+      
+        <div className={styles.tituloinfousuario}>Información de usuario</div>
         <Input
+        
           placeholder="Ingrese Nombre"
           onChange={handleInputChange}
           value={userInfo.name}
@@ -162,7 +189,7 @@ export const UserInfo = () => {
     if (!userInfo) return;
     return (
       <>
-        <div>Información de tienda</div>
+        <div className={styles.tituloinfousuario}>Información de la tienda</div>
         <Input
           placeholder="Ingresar Nombre Negocio"
           onChange={handleStoreChange}
@@ -178,12 +205,11 @@ export const UserInfo = () => {
       </>
     );
   };
-
-  const chooseCategory = () => {
+        {/*agrege styles a los botones < const chooseCategory = () => {
     if (!userInfo) return;
     return (
       <>
-        <div>Categorias de tienda</div>
+        <div className={styles.tituloinfousuario}>Categorias de tienda</div>
         {categories.map((category) => (
           <button key={category} onClick={() => toggleCategory(category)}>
             {category}
@@ -192,6 +218,32 @@ export const UserInfo = () => {
       </>
     );
   };
+        asi estaba*/}
+  const chooseCategory = () => {
+  if (!userInfo) return null;
+
+  return (
+    <>
+      <div className={styles.tituloinfousuario}>Categorías de tienda</div>
+     <div className={styles.categoryGrid}>
+  {categories.map((category) => {
+    const isSelected = storeInfo.categories.includes(category);
+    return (
+      <button
+        key={category}
+        className={`${styles.categoryButton} ${isSelected ? styles.selectedCategory : ""}`}
+        onClick={() => toggleCategory(category)}
+      >
+        {category}
+      </button>
+    );
+  })}
+</div>
+
+    </>
+  );
+};
+
 
   const stepsContent = [addUserInfo(), addStoreInfo(), chooseCategory()];
   const steps = [
@@ -204,7 +256,15 @@ export const UserInfo = () => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.containerUserInfo}>
-        <Steps size="default" current={currentSlide} items={items} />
+        {/*aca al steps le puse un style para los puntos <Steps size="default" current={currentSlide} items={items} />
+asi estaba */}
+        <Steps
+            size="default"
+            current={currentSlide}
+            items={items}
+            className={styles.stepsCustom}
+          />
+
         <div>{stepsContent[currentSlide]}</div>
         <FooterButtons />
       </div>

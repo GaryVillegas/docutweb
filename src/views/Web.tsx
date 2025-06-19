@@ -7,10 +7,12 @@ import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
 
 export const Web = () => {
   return (
+    
     <div className={styles.container}>
-      <NabBarDoCut />
+      <NabBarDoCut  /> navbar
 
       <div className={styles.grid}>
+        
        
         <div className={styles.card1}>
           <img src={docutLogo} alt="DoCut logo" className={styles.logo} />
