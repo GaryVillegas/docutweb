@@ -57,3 +57,41 @@ Asegúrate de tener Node.js y git.
 npm install
 npm run dev
 ```
+
+## 📋 KPI Mensuales
+
+### ✅ 1. Total de citas agendadas
+
+**¿Qué Mide?**
+Total de citas agendadas en el mes.
+**Formula**
+**Total de citas del mes** = cantidad de citas con fecha dentro del mes
+
+### ❌ 2. Porcentaje de cancelaciones
+
+**¿Qué Mide?**
+Qué porcentaje de las citas agendadas fueron canceladas.
+**Formula**
+**Tasa de cancelación (%)** = (Citas canceladas ÷ Total de citas) × 100
+**Ejemplo:**
+
+```
+Total de citas del mes = 130
+Citas canceladas = 20
+Tasa de cancelación = (20 ÷ 130) × 100 = 15,38 %
+```
+
+### 💰 3. Ingreso mensual estimado
+
+**¿Qué Mide?**
+El dinero total que se generó por las citas realizadas en el mes.
+**Formular**
+**Ingreso del mes** = suma de los precios de todas las citas realizadas
+**Ejemplo:**
+
+```
+20 citas a $10.000 = $200.000
+30 citas a $15.000 = $450.000
+30 citas a $12.000 = $360.000
+Ingreso total = $200.000 + $450.000 + $360.000 = $1.010.000 CLP
+```
