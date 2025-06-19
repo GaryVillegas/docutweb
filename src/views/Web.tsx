@@ -8,18 +8,16 @@ import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
 export const Web = () => {
   return (
     <div className={styles.container}>
-      <NabBarDoCut />
+      <NabBarDoCut userUID={null} />
 
       <div className={styles.grid}>
-       
         <div className={styles.card1}>
           <img src={docutLogo} alt="DoCut logo" className={styles.logo} />
         </div>
 
-       
         <div className={styles.card2}>
           <div className={styles.storeIcons}>
-            <FontAwesomeIcon icon={faAndroid} size="3x"  color="white"/>
+            <FontAwesomeIcon icon={faAndroid} size="3x" color="white" />
             <FontAwesomeIcon icon={faApple} size="3x" color="white" />
           </div>
 
@@ -28,17 +26,17 @@ export const Web = () => {
             Controla tus horarios, servicios y personal desde un solo lugar.
             Optimiza tu tiempo y haz crecer tu negocio.
           </p>
-          <button className={styles.boton}><p className={styles.pboton}>Comenzar ahora!</p></button>
+          <button className={styles.boton}>
+            <p className={styles.pboton}>Comenzar ahora!</p>
+          </button>
         </div>
 
-       
         <div className={styles.card3}>
           <FontAwesomeIcon icon={faCalendarCheck} size="5x" color="white" />
           <h3>Citas de hoy</h3>
           <p>Revisa rápidamente quién viene hoy y a qué hora.</p>
         </div>
 
-        
         <div className={styles.card5}>
           <FontAwesomeIcon icon={faChartBar} size="5x" color="white" />
           <h3>Estadísticas</h3>
