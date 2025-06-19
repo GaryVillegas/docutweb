@@ -1,17 +1,8 @@
-import { NabBarDoCut } from "../components/NavBarDoCut";
-import { MenuL } from "../components/MenuL";
-
-
+import { useAuth } from "../context/AuthContext";
 
 export const Home = () => {
-  return (
-    <div>
-      <NabBarDoCut />
-      <MenuL />
+  const { user } = useAuth();
+  if (!user) return;
 
-
-
-      
-    </div>
-  );
+  return <div>Home</div>;
 };

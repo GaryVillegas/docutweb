@@ -5,6 +5,7 @@ import { Home } from "../views/Home";
 import { Register } from "../views/auth/Register";
 import PrivateRoute from "../context/PrivateRoute";
 import { UserInfo } from "../views/auth/UserInfo";
+import { Layout } from "../views/Layout";
 
 export const AppRouter = () => {
   return (
@@ -24,7 +25,9 @@ export const AppRouter = () => {
         path="/home"
         element={
           <PrivateRoute>
-            <Home />
+            <Layout>
+              <Home />
+            </Layout>
           </PrivateRoute>
         }
       />
