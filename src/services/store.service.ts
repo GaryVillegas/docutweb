@@ -161,9 +161,10 @@ class StoreService {
         console.warn("🚫 service doesn't exit.");
         return undefined;
       }
+      const data = userSnapshot.data();
       return {
         UID: uid,
-        userInfo: userSnapshot.data(),
+        userInfo: data.userInfo,
       } as userData;
     } catch (error) {
       console.log("❌ error catching service: ", error);
