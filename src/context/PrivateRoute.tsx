@@ -68,5 +68,9 @@ export default function PrivateRoute({ children }: { children: JSX.Element }) {
 
   // Si llegamos aquí, todo está bien
   console.log("✅ Usuario autenticado y datos cargados, renderizando children");
+  if (userData?.userInfo.tipe === "cliente") {
+    showMessage("Los clientes no pueden acceder al dashboard.", "warning");
+    return <Navigate to="/" replace />;
+  }
   return children;
 }

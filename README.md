@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# ✂️ DocutWeb
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema completo de agendamiento para peluquerías y tiendas de estética, compuesto por:
 
-Currently, two official plugins are available:
+- 📱 **App móvil**: permite a los clientes ver servicios, horarios disponibles y agendar citas.
+- 💻 **Dashboard web**: permite al personal gestionar citas, clientes, servicios y ver reportes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📌 Tabla de Contenidos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Características](#-características)
+- [Arquitectura](#-arquitectura)
+- [Instalación](#-instalación)
+  - [Backend/API](#backendapi)
+  - [Dashboard Web](#dashboard-web)
+  - [App Móvil](#app-móvil)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💡 Características
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **App móvil (cliente)**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+  - Registro e inicio de sesión
+  - Visualización de servicios disponibles (cortes, tratamientos, depilación…)
+  - Calendario con horarios disponibles
+  - Creación de citas con confirmación automática
+  - Gestión de perfil de usuario
+
+- **Dashboard web (personal)**
+  - Calendario y lista de citas
+  - Gestión de servicios (CRUD)
+  - Configuración de horarios de atención
+  - Confirmación, cancelación y reasignación de citas
+  - Gestión de clientes
+  - Reportes básicos (citas por día, servicio, cliente)
+
+---
+
+## 🏛️ Arquitectura
+
+- **Backend/API**: NextJS con SKD transbank para transacciones
+- **Base de datos**: Firestore por firebase
+- **App móvil**: Ionic Angular
+- **Dashboard web**: React o Vue.js con Antd y bootstrap
+
+---
+
+## 🚀 Instalación
+
+Asegúrate de tener Node.js y git.
+
+### Proyecto
+
+```bash
+npm install
+npm run dev
 ```
