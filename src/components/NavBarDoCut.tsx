@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightFromBracket,
   faAngleDown,
+  faGear,
 } from "@fortawesome/free-solid-svg-icons";
 import { Navigate } from "react-router-dom";
 import authenticationService from "../services/authentication.service";
@@ -22,7 +23,7 @@ type userProps = {
 export const NabBarDoCut = ({ userUID }: userProps) => {
   const { user, loading } = useAuth();
   const { getUserData, fetchUserData } = useManageUser();
-  if (!user || !userUID) return null;
+
   useEffect(() => {
     if (userUID) {
       fetchUserData(userUID);
@@ -34,6 +35,11 @@ export const NabBarDoCut = ({ userUID }: userProps) => {
   const items = [
     {
       key: "1",
+      label: "configurar perfil",
+      icon: <FontAwesomeIcon icon={faGear} />,
+    },
+    {
+      key: "2",
       danger: true,
       label: "logout",
       icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
@@ -41,7 +47,7 @@ export const NabBarDoCut = ({ userUID }: userProps) => {
   ];
 
   const handleMenuClick = (e: any) => {
-    if (e.key === "1") {
+    if (e.key === "2") {
       authenticationService.logOut();
       console.log("Cerrando sesión. . .");
       return <Navigate to={"/Web"} replace />;

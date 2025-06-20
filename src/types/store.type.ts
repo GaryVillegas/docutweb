@@ -5,6 +5,6 @@ export interface storeInfo {
 }
 
 export interface storeData {
-  userUID: string;
+  storeId: string;
   storeInfo: storeInfo;
 }

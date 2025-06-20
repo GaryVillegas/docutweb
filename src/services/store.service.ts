@@ -9,9 +9,10 @@ import {
   getDocs,
   updateDoc,
   deleteDoc,
+  limit,
 } from "firebase/firestore";
 import type { userData, userInfo } from "../types/user.type";
-import type { storeInfo } from "../types/store.type";
+import type { storeData, storeInfo } from "../types/store.type";
 import type { service, serviceData } from "../types/service.type";
 import type { date } from "../types/date.type";
 
@@ -93,6 +94,30 @@ class StoreService {
       console.log("cita successfully created!");
     } catch (error) {
       console.error("Error creating date: ", error);
+      throw error;
+    }
+  }
+
+  async getUserStore(userUID: string): Promise<storeData | undefined> {
+    try {
+      if (!userUID) throw new Error("userUID required.");
+      const storeQuery = query(
+        collection(FIREBASE_DB, "stores"),
+        where("userUID", "==", userUID),
+        limit(1)
+      );
+      const storeSnapshot = await getDocs(storeQuery);
+      const store = storeSnapshot.docs.map((store) => {
+        const storeData = store.data();
+        return {
+          storeId: store.id,
+          storeInfo: storeData,
+        } as storeData;
+      });
+      console.log("Store catch: ", store);
+      return store[0];
+    } catch (error) {
+      console.log("Error catching Store: ", error);
       throw error;
     }
   }
