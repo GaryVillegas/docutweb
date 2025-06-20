@@ -117,18 +117,18 @@
 }
 
 /*CSS de UserInfo*/
-/* Contenedor principal */
+/* Fondo morado claro */
 .mainContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: var(--Secondary-Color);
+  background-color: var(--Secondary-Color); 
 }
 
 
 .containerUserInfo {
-  background-color: white !important;
+  background-color: var(--White-Color);
   padding: 2rem;
   border-radius: 20px;
   width: 100%;
@@ -150,21 +150,37 @@
   width: 100%;
 }
 
+
 .containerUserInfo input {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: none;
+  background-color: #d1d1d1; 
   font-weight: bold;
-  background-color: #f0f0f0;
   font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  box-shadow: none;
 }
 
-/* Botones  */
-.containerUserInfo button {
+.containerUserInfo input:hover {
+  background-color: var(--Gray-Color);
+  cursor: text;
+}
+
+
+.containerUserInfo input:focus {
+  background-color: var(--Gray-Color);
+  outline: none;
+  box-shadow: none;
+}
+
+
+.footerButton {
   width: 300px;
-  background-color: #7c3aed;
+  background-color: var(--Primary-Color);
   color: white;
   border: none;
   border-radius: 10px;
@@ -175,61 +191,55 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover botón */
-.containerUserInfo button:hover {
-  background-color: #6b21a8;
+.cancelButton {
+  background-color: white;
+  color: #7c3aed;
+  border: 2px solid #7c3aed;
 }
 
-/* Contenedor de botones si necesitas separarlos */
+.cancelButton:hover {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+}
+
+/* Contenedor de botones */
 .footerButtons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.01rem;
+  margin-top: 0.5rem;
 }
-
-/* botón de cancelar  */
-.cancelButton {
-  background-color: #a855f7;
-}
-
-
 .categoryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  width: 100%;
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
   margin: 2rem auto;
+  max-width: 600px;
 }
-
 .categoryButton {
-  background-color: var(--Secondary-Color);
-  color: white;
+  background-color: var(--Gray-Color);
+  color: var();
   border: none;
-  padding: 0.5rem 1rem; 
-  border-radius: 10px;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px; 
   font-weight: 600;
-  font-size: 0.9rem; 
-  text-align: center;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  white-space: normal;
-  word-break: break-word;
-  min-height: 44px; 
-  margin: 0.25rem;
+  white-space: nowrap;
 }
-
-
-
-.categoryButton:hover {
-  background-color: #7c3aed;
-}
-
 .selectedCategory {
-  background-color: white;
-  color: #7c3aed;
+  background-color: var(--Primary-Color);
+  color: white;
   border: 2px solid #7c3aed;
+}
+.stepContent {
+  min-height: 250px; /* Ajusta según lo necesario */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 

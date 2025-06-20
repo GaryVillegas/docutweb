@@ -130,7 +130,7 @@ export const UserInfo = () => {
             </button>
           )}
           {currentSlide > 0 && (
-            <button className={styles.footerButton} onClick={prev}>
+            <button className={`${styles.footerButton} ${styles.cancelButton}`} onClick={prev}>
               Volver
             </button>
           )}
@@ -264,8 +264,9 @@ asi estaba */}
             items={items}
             className={styles.stepsCustom}
           />
+        {/*aca al steps le puse un style <div>{stepsContent[currentSlide]}</div> */}
+        <div className={styles.stepContent}>{stepsContent[currentSlide]}</div>
 
-        <div>{stepsContent[currentSlide]}</div>
         <FooterButtons />
       </div>
     </div>
