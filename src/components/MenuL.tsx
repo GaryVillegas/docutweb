@@ -65,13 +65,16 @@ export const MenuL = () => {
     <>
       <Sider width={220} className={styles.sidebar}>
         <div className={styles.menuContent}>
-          <Menu
-            theme={theme}
-            mode="inline"
-            selectedKeys={[selectedKey]}
-            onClick={handleClick}
-            items={items}
-          />
+         <Menu
+              theme="light"
+              mode="inline"
+              selectedKeys={[selectedKey]}
+              onClick={handleClick}
+              items={items}
+              className={styles.menuCustom}
+            />
+
+
         </div>
 
         <div className={styles.menuFooter}>
