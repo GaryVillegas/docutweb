@@ -51,19 +51,19 @@
   font-size: 18px;
   cursor: pointer;
 }
-/* Fuerza el color morado al item seleccionado */
+
 .menuCustom :global(.ant-menu-item-selected) {
   background-color: var(--Primary-Color) !important;
-  color: white !important;
+  color: var(--White-Color)!important;
   font-weight: bold !important;
 }
 
-/* También cambia el color del ícono seleccionado */
+
 .menuCustom :global(.ant-menu-item-selected) .anticon {
-  color: white !important;
+  color: var(--White-Color) !important;
 }
 
-/* Evita que Ant Design aplique su fondo azul claro */
+
 .menuCustom :global(.ant-menu-light .ant-menu-item-selected) {
   background-color: var(--Primary-Color) !important;
 }

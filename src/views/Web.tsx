@@ -2,7 +2,7 @@ import { NabBarDoCut } from "../components/NavBarDoCut";
 import styles from "./Web.module.css";
 import docutLogo from "../assets/ChatGPT Image 16 jun 2025, 01_21_36.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarCheck, faChartBar } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarCheck, faChartBar ,faChartSimple} from "@fortawesome/free-solid-svg-icons";
 import { faAndroid, faApple } from "@fortawesome/free-brands-svg-icons";
 
 export const Web = () => {
@@ -39,7 +39,8 @@ export const Web = () => {
         </div>
 
         <div className={styles.card5}>
-          <FontAwesomeIcon icon={faChartBar} size="5x" color="white" />
+          <FontAwesomeIcon icon={faChartSimple }size="5x" color="white" />
+          
           <h3>Estadísticas</h3>
           <p>Visualiza el rendimiento de tu barbería con datos clave.</p>
         </div>
