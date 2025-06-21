@@ -115,7 +115,7 @@ class StoreService {
         const storeData = store.data();
         return {
           storeId: store.id,
-          storeInfo: storeData,
+          storeInfo: storeData["storeInfo"],
         } as storeData;
       });
       console.log("Store catch: ", store);
@@ -143,7 +143,7 @@ class StoreService {
         const serviceData = service.data();
         return {
           serviceId: service.id,
-          serviceData: serviceData,
+          serviceData: serviceData["serviceData"],
         } as serviceData;
       });
       console.log("✅ Services catchs: ", services);
@@ -171,7 +171,7 @@ class StoreService {
         const dateData = date.data();
         return {
           dateId: date.id,
-          dateData,
+          dateData: dateData["cita"],
         } as dateData;
       });
       return storeDates;
@@ -196,10 +196,30 @@ class StoreService {
       }
       return {
         serviceId: serviceId,
-        serviceData: serviceSnapshot.data(),
+        serviceData: serviceSnapshot.data()["serviceData"],
       } as serviceData;
     } catch (error) {
       console.log("❌ error catching service: ", error);
+      throw error;
+    }
+  }
+
+  /**
+   * @param serviceId
+   * @returns nombre del servicio esperado.
+   */
+  async getServiceName(serviceId: string): Promise<string | null> {
+    try {
+      if (!serviceId) throw new Error("serviceId are required.");
+      const serviceRef = doc(FIREBASE_DB, "service", serviceId);
+      const serviceSnapshot = await getDoc(serviceRef);
+      if (!serviceSnapshot.exists())
+        throw new Error("Este servicio no existe.");
+      const serviceName =
+        serviceSnapshot.data()?.["serviceData"]?.["nombreServicio"];
+      return serviceName;
+    } catch (error) {
+      console.log("Error catching service name: ", error);
       throw error;
     }
   }
