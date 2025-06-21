@@ -83,7 +83,7 @@
 .contenedorCitas,
 .kpigrafico {
   background-color: var(--White-Color);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 12px;
   border: 0.5px solid var(--Gray-Color);
   flex: 1;
@@ -91,8 +91,6 @@
   display: flex;
   flex-direction: column;
 }
-
-
 
 .citas h3 {
   margin-bottom: 1rem;
@@ -131,7 +129,6 @@
 }
 
 /* KPI gráfico */
-
 
 .kpigrafico h3 {
   margin-bottom: 0.5rem;

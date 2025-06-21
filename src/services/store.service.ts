@@ -136,7 +136,7 @@ class StoreService {
     try {
       const serviceQuery = query(
         collection(FIREBASE_DB, "service"),
-        where("storeId", "==", storeId)
+        where("serviceData.storeId", "==", storeId)
       );
       const serviceSnapshot = await getDocs(serviceQuery);
       const services = serviceSnapshot.docs.map((service) => {
