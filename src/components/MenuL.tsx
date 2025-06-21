@@ -5,6 +5,7 @@ import {
   TeamOutlined,
   DropboxOutlined,
   SettingOutlined,
+  ProductOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Switch, Modal } from "antd";
 import type { MenuProps, MenuTheme } from "antd";
@@ -30,6 +31,11 @@ const items: MenuItem[] = [
     label: "Bodega",
     icon: <DropboxOutlined />,
   },
+  {
+    key: "4",
+    label: "Servicios",
+    icon: <ProductOutlined />,
+  },
 ];
 
 export const MenuL = () => {
@@ -49,6 +55,8 @@ export const MenuL = () => {
       navigate("/team");
     } else if (e.key === "3") {
       navigate("/stock");
+    } else if (e.key === "4") {
+      navigate("/service");
     }
     setSelectedKey(e.key);
   };

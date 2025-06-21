@@ -14,7 +14,7 @@ import {
 import type { userData, userInfo } from "../types/user.type";
 import type { storeData, storeInfo } from "../types/store.type";
 import type { service, serviceData } from "../types/service.type";
-import type { date } from "../types/date.type";
+import type { date, dateData } from "../types/date.type";
 
 class StoreService {
   //Funciones de creacion
@@ -98,6 +98,10 @@ class StoreService {
     }
   }
 
+  /**
+   * @param userUID
+   * @returns los datos de la tienda creada por el usuario.
+   */
   async getUserStore(userUID: string): Promise<storeData | undefined> {
     try {
       if (!userUID) throw new Error("userUID required.");
@@ -146,6 +150,33 @@ class StoreService {
       return services;
     } catch (error) {
       console.log("❌ error catching services: ", error);
+      throw error;
+    }
+  }
+
+  /**
+   * @param storeId
+   * @returns las citas creadas a la tienda.
+   */
+  async getStoreDates(storeId: string): Promise<dateData[] | undefined> {
+    try {
+      const fechaHoy = new Date().toISOString().split("T")[0];
+      const dateQuery = query(
+        collection(FIREBASE_DB, "cita"),
+        where("cita.storeId", "==", storeId),
+        where("cita.fechaSeleccionada", "==", fechaHoy)
+      );
+      const dateSnapshot = await getDocs(dateQuery);
+      const storeDates = dateSnapshot.docs.map((date) => {
+        const dateData = date.data();
+        return {
+          dateId: date.id,
+          dateData,
+        } as dateData;
+      });
+      return storeDates;
+    } catch (error) {
+      console.log("❌ error catching dates: ", error);
       throw error;
     }
   }

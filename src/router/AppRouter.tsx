@@ -8,6 +8,7 @@ import { UserInfo } from "../views/auth/UserInfo";
 import { Layout } from "../views/Layout";
 import { Team } from "../views/Team";
 import { Stock } from "../views/Stock";
+import { Service } from "../views/Service";
 
 export const AppRouter = () => {
   return (
@@ -49,6 +50,16 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout>
               <Stock />
+            </Layout>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/service"
+        element={
+          <PrivateRoute>
+            <Layout>
+              <Service />
             </Layout>
           </PrivateRoute>
         }
