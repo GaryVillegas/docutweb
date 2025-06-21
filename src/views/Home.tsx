@@ -1,6 +1,9 @@
 import { useAuth } from "../context/AuthContext";
 import styles from "./Home.module.css";
 import { Divider } from "antd";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck,faPercent,faChartSimple } from '@fortawesome/free-solid-svg-icons';
 
 export const Home = () => {
   const { user } = useAuth();
@@ -17,17 +20,21 @@ export const Home = () => {
         </header>
         <div className={styles.cartaskpi}>
           <div className={styles.carta}>
+            <FontAwesomeIcon icon={faCheck} />
+
             <h4>Citas agendadas</h4>
 
             <div className={styles.valor}>$1111</div>
             <div className={styles.descripcion}>+2% que el mes pasado</div>
           </div>
           <div className={styles.carta}>
+            <FontAwesomeIcon icon={faPercent} />
             <h4>Porcentaje de Cancelaciones</h4>
             <div className={styles.valor}>$1111</div>
             <div className={styles.descripcion}>-2% que el mes pasado</div>
           </div>
           <div className={styles.carta}>
+            <FontAwesomeIcon icon={faChartSimple} />
             <h4>Ingreso Mensal Estimado</h4>
             <div className={styles.valor}>$1111</div>
             <div className={styles.descripcion}>+2% que el mes pasado</div>
@@ -45,7 +52,7 @@ export const Home = () => {
                   <td>Nombre Servicio</td>
                   <td>Hora Cita</td>
                   <td>
-                    <button className={styles.eliminarBtn}>eliminar</button>
+                    <button className={styles.eliminarBtn}> <FontAwesomeIcon icon={faTrash} /> </button>
                   </td>
                 </tr>
                 <tr>
@@ -53,7 +60,7 @@ export const Home = () => {
                   <td>Nombre Servicio</td>
                   <td>Hora Cita</td>
                   <td>
-                    <button className={styles.eliminarBtn}>eliminar</button>
+                    <button className={styles.eliminarBtn}> <FontAwesomeIcon icon={faTrash} /></button>
                   </td>
                 </tr>
                 <tr>
@@ -61,7 +68,7 @@ export const Home = () => {
                   <td>Nombre Servicio</td>
                   <td>Hora Cita</td>
                   <td>
-                    <button className={styles.eliminarBtn}>eliminar</button>
+                    <button className={styles.eliminarBtn}> <FontAwesomeIcon icon={faTrash} /> </button>
                   </td>
                 </tr>
               </tbody>
