@@ -46,7 +46,7 @@ export const Service = () => {
   if (!getStoreData) return;
 
   return (
-    <div>
+    /*  <div>
       <div>
         <CreateService
           storeId={getStoreData?.storeId}
@@ -67,6 +67,42 @@ export const Service = () => {
           style={{ marginTop: "20px", width: "60%" }}
         />
       </div>
-    </div>
+    </div>*/
+
+   <div style={{ display: "flex", gap: "1rem", alignItems: "stretch", minHeight: "400px" }}>
+  
+        <div style={{ flex: 2, display: "flex", flexDirection: "column" }}>
+          <CreateService
+            storeId={getStoreData?.storeId}
+            fetchService={() => fetchServiceStore(getStoreData.storeId)}
+          />
+          <Table
+            dataSource={
+              serviceStore
+                ? serviceStore.map((item) => ({
+                    key: item.serviceId,
+                    ...item.serviceData.serviceData,
+                  }))
+                : []
+            }
+            columns={columns}
+            style={{ marginTop: "20px" }}
+          />
+        </div>
+
+        
+        <div
+          style={{
+            flex: 1,
+            backgroundColor: "var(--Gray-Color)",
+            borderRadius: "10px",
+            padding: "1rem",
+            marginTop: "3.5rem",
+          }}
+        >
+          
+        </div>
+      </div>
+
   );
 };

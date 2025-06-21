@@ -75,16 +75,7 @@ export const MenuL = () => {
         </div>
 
         <div className={styles.menuFooter}>
-          <div className={styles.footerLeft}>
-            <span className={styles.labelFooter}>
-              {theme === "dark" ? "Oscuro" : "Abierto"}
-            </span>
-            <Switch
-              size="small"
-              checked={theme === "dark"}
-              onChange={changeTheme}
-            />
-          </div>
+          
           <SettingOutlined
             onClick={() => setModalVisible(true)}
             className={styles.iconoConfig}

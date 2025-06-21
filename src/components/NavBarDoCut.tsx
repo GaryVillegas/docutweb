@@ -41,7 +41,7 @@ export const NabBarDoCut = ({ userUID }: userProps) => {
     {
       key: "2",
       danger: true,
-      label: "logout",
+      label: "Salir",
       icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
     },
   ];
@@ -55,7 +55,7 @@ export const NabBarDoCut = ({ userUID }: userProps) => {
   };
 
   return (
-    <Navbar style={{ borderBottom: "0.5px solid var(--Gray-Color)" }}>
+    <Navbar style={{ borderBottom: "0.5px solid var(--Secondary-Color)" }}>
       <Container fluid>
         <Navbar.Brand>
           <img
