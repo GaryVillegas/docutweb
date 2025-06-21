@@ -1,0 +1,152 @@
+.layout {
+  display: flex;
+  background-color: var(--White-Color);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.contenedor {
+  flex: 1;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* KPI Cards */
+.cartaskpi {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.carta {
+  background-color: var(--Secondary-Color);
+  flex: 1;
+  max-width: 180px;
+  min-width: 160px;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.carta:hover {
+  transform: translateY(-4px);
+}
+
+.carta h4 {
+  font-size: 0.9rem;
+}
+
+.valor {
+  font-size: 1.3rem;
+}
+
+.descripcion {
+  font-size: 0.7rem;
+}
+
+/* Layout inferior */
+.seccion {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: nowrap; /* <- fuerza que estén al lado y no se bajen */
+  align-items: stretch; /* <- los alinea al mismo alto */
+}
+
+.contenedorCitas,
+.kpigrafico {
+  background-color: var(--White-Color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 0.5px solid var(--Gray-Color);
+  flex: 1;
+  height: 340px; /* mismo alto fijo para ambos */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.citas h3 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--Gray-Color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--Hard-Gray);
+  font-size: 0.95rem;
+}
+
+.eliminarBtn {
+  background-color: #ffe2e2;
+  color: var(--Red-Color);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.eliminarBtn:hover {
+  background-color: #ffd2d2;
+}
+
+/* KPI gráfico */
+
+
+.kpigrafico h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.grafico {
+  height: 320px;
+  background-color: var(--White-Color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 0.9rem;
+}
