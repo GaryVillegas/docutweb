@@ -2,6 +2,7 @@ import { useManageStore } from "../hooks/useManageStore";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 import { Table } from "antd";
+import { CreateService } from "../components/serviceComponents/createService";
 
 export const Service = () => {
   const { user } = useAuth();
@@ -18,6 +19,7 @@ export const Service = () => {
       fetchServiceStore(getStoreData.storeId);
     }
   }, [getStoreData]);
+
   const columns = [
     {
       title: "Nombre",
@@ -41,10 +43,15 @@ export const Service = () => {
     },
   ];
 
+  if (!getStoreData) return;
+
   return (
     <div>
       <div>
-        <button>Crear Servicio</button>
+        <CreateService
+          storeId={getStoreData?.storeId}
+          fetchService={() => fetchServiceStore(getStoreData.storeId)}
+        />
       </div>
       <div>
         <Table
