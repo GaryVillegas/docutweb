@@ -7,8 +7,8 @@ import {
   SettingOutlined,
   ProductOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Switch, Modal } from "antd";
-import type { MenuProps, MenuTheme } from "antd";
+import { Layout, Menu, Modal } from "antd";
+import type { MenuProps } from "antd";
 import styles from "./../App.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -39,14 +39,9 @@ const items: MenuItem[] = [
 ];
 
 export const MenuL = () => {
-  const [theme, setTheme] = useState<MenuTheme>("light");
   const [selectedKey, setSelectedKey] = useState("1");
   const [modalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
-
-  const changeTheme = (value: boolean) => {
-    setTheme(value ? "dark" : "light");
-  };
 
   const handleClick: MenuProps["onClick"] = (e) => {
     if (e.key === "1") {
@@ -65,20 +60,17 @@ export const MenuL = () => {
     <>
       <Sider width={220} className={styles.sidebar}>
         <div className={styles.menuContent}>
-         <Menu
-              theme="light"
-              mode="inline"
-              selectedKeys={[selectedKey]}
-              onClick={handleClick}
-              items={items}
-              className={styles.menuCustom}
-            />
-
-
+          <Menu
+            theme="light"
+            mode="inline"
+            selectedKeys={[selectedKey]}
+            onClick={handleClick}
+            items={items}
+            className={styles.menuCustom}
+          />
         </div>
 
         <div className={styles.menuFooter}>
-          
           <SettingOutlined
             onClick={() => setModalVisible(true)}
             className={styles.iconoConfig}
