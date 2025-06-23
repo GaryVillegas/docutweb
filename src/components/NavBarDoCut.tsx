@@ -55,7 +55,7 @@ export const NabBarDoCut = ({ userUID }: userProps) => {
   };
 
   return (
-    <Navbar style={{ borderBottom: "0.5px solid var(--Secondary-Color)" }}>
+    <Navbar style={{ borderBottom: "0.5px solid var(--Gray-Color)" }}>
       <Container fluid>
         <Navbar.Brand>
           <img

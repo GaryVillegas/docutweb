@@ -35,7 +35,12 @@ class AuthenticationService {
 
   async registration(email: string, password: string) {
     try {
-      await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        FIREBASE_AUTH,
+        email,
+        password
+      );
+      return userCredential.user.uid;
     } catch (error) {
       console.error("Error al crear cuenta: ", error);
       if (error instanceof Error && "code" in error) {

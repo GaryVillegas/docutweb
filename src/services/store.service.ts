@@ -15,6 +15,7 @@ import type { userData, userInfo } from "../types/user.type";
 import type { storeData, storeInfo } from "../types/store.type";
 import type { service, serviceData } from "../types/service.type";
 import type { date, dateData } from "../types/date.type";
+import type { memberInfo } from "../types/team";
 
 class StoreService {
   //Funciones de creacion
@@ -98,6 +99,20 @@ class StoreService {
     }
   }
 
+  async createTeamMember(uid: string, memberInfo: memberInfo): Promise<void> {
+    try {
+      if (!uid || memberInfo) throw new Error("uid and userinfo are required");
+      await setDoc(doc(FIREBASE_DB, "teamMember", uid), {
+        memberInfo,
+      });
+      console.log("Member team successfully created!");
+    } catch (error) {
+      console.log("Error creating team member: ", error);
+      throw error;
+    }
+  }
+
+  //Funciones para obtener los datos
   /**
    * @param userUID
    * @returns los datos de la tienda creada por el usuario.
@@ -126,7 +141,6 @@ class StoreService {
     }
   }
 
-  //Funciones para obtener los datos
   /**
    * @param storeId
    * @returns
