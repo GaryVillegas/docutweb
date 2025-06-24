@@ -101,7 +101,7 @@ class StoreService {
 
   async createTeamMember(uid: string, memberInfo: memberInfo): Promise<void> {
     try {
-      if (!uid || memberInfo) throw new Error("uid and userinfo are required");
+      if (!uid || !memberInfo) throw new Error("uid and userinfo are required");
       await setDoc(doc(FIREBASE_DB, "teamMember", uid), {
         memberInfo,
       });

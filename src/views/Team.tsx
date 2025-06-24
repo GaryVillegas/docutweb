@@ -18,7 +18,7 @@ export const Team = () => {
 
   React.useEffect(() => {
     if (!getStoreData?.storeId) return;
-    fetchMemberData(getStoreData.storeId as string);
+    fetchMemberData(getStoreData.storeId);
   }, [getStoreData?.storeId]);
 
   const columns = [

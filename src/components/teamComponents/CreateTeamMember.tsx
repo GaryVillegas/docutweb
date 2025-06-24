@@ -6,6 +6,7 @@ import type { memberInfo } from "../../types/team";
 import { useMessageContext } from "../../context/MessageContext";
 import authenticationService from "../../services/authentication.service";
 import storeService from "../../services/store.service";
+import type { User } from "firebase/auth";
 
 interface DrawerProps {
   storeId: string;
@@ -21,6 +22,7 @@ export const CreateTeamMember: React.FC<DrawerProps> = ({
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [newMemberUID, setNewMemberUID] = React.useState("");
+  const [memberCreated, setMemberCreated] = React.useState<User>();
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [memberInfo, setMemberInfo] = React.useState<memberInfo>({
     nombreMiembro: "",
@@ -36,8 +38,13 @@ export const CreateTeamMember: React.FC<DrawerProps> = ({
 
   const handleCreateUser = async () => {
     try {
-      const uid = await authenticationService.registration(email, password);
+      const { uid, user } = await authenticationService.memberRegistration(
+        email,
+        password
+      );
+      console.log(uid);
       setNewMemberUID(uid);
+      setMemberCreated(user);
       next();
     } catch (error: any) {
       showMessage(`${error.message}`, "error");
@@ -45,7 +52,11 @@ export const CreateTeamMember: React.FC<DrawerProps> = ({
   };
 
   const handleSubmit = async (storeId: string) => {
-    if (!storeId) return;
+    if (!storeId) {
+      showMessage("No hay storeId, no se puede crear el colaborador", "error");
+      return;
+    }
+    console.log("storeId enviado:", storeId);
     try {
       const newMemberInfo = { ...memberInfo, storeId };
       await storeService.createTeamMember(newMemberUID, newMemberInfo);
@@ -173,12 +184,16 @@ export const CreateTeamMember: React.FC<DrawerProps> = ({
           <Button onClick={() => handleCreateUser()}>Siguiente</Button>
         )}
         {currentSlide === steps.length - 1 && (
-          <Button onClick={() => handleSubmit(storeId)}>
+          <Button
+            onClick={() => handleSubmit(storeId)}
+            disabled={!newMemberUID}
+            type="primary"
+          >
             Crear Colaborador
           </Button>
         )}
         {currentSlide === 0 && (
-          <Button onClick={() => cancel(newMemberUID)}>cancelar</Button>
+          <Button onClick={() => cancel(memberCreated)}>cancelar</Button>
         )}
         {currentSlide > 0 && <Button onClick={prev}>Volver</Button>}
       </div>
@@ -205,7 +220,7 @@ export const CreateTeamMember: React.FC<DrawerProps> = ({
           border: "none",
         }}
       >
-        <FontAwesomeIcon icon={faCirclePlus} /> Crear Servicio
+        <FontAwesomeIcon icon={faCirclePlus} /> Crear Colaborador
       </button>
       <Drawer
         title="Nuevo Miembro de Equipo"
