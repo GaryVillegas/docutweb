@@ -6,8 +6,9 @@ import googleLogo from "./../../assets/Google-color.svg";
 import { useMessageContext } from "../../context/MessageContext";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
+import { Input } from "antd";
 
 export const Register = () => {
   const [email, setEmail] = React.useState("");
@@ -55,15 +56,25 @@ export const Register = () => {
         </h1>
         <h2 className={styles.title}>Crear Cuenta</h2>
 
-        <input
-          type="email"
+        <Input
+          prefix={
+            <FontAwesomeIcon
+              icon={faAt}
+              style={{ color: "var(--Gray-Color)" }}
+            />
+          }
           placeholder="Correo"
           className={styles.input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
+        <Input.Password
+          prefix={
+            <FontAwesomeIcon
+              icon={faLock}
+              style={{ color: "var(--Gray-Color)" }}
+            />
+          }
           placeholder="Contraseña"
           className={styles.input}
           value={password}

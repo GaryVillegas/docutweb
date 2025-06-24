@@ -15,7 +15,7 @@ import type { userData, userInfo } from "../types/user.type";
 import type { storeData, storeInfo } from "../types/store.type";
 import type { service, serviceData } from "../types/service.type";
 import type { date, dateData } from "../types/date.type";
-import type { memberInfo } from "../types/team";
+import type { memberData, memberInfo } from "../types/team";
 
 class StoreService {
   //Funciones de creacion
@@ -258,6 +258,27 @@ class StoreService {
       } as userData;
     } catch (error) {
       console.log("❌ error catching service: ", error);
+      throw error;
+    }
+  }
+
+  async getMemberData(storeId: string): Promise<memberData[] | undefined> {
+    try {
+      const memberQuery = query(
+        collection(FIREBASE_DB, "teamMember"),
+        where("memberInfo.storeId", "==", storeId)
+      );
+      const memberSnapshot = await getDocs(memberQuery);
+      const members = memberSnapshot.docs.map((member) => {
+        const memberData = member.data();
+        return {
+          memberUID: member.id,
+          memberInfo: memberData["memberInfo"],
+        } as memberData;
+      });
+      return members;
+    } catch (error) {
+      console.log("Error catching members: ", error);
       throw error;
     }
   }
