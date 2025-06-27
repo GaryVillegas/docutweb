@@ -1,8 +1,6 @@
-// src/components/MenuL.tsx
 import { useState } from "react";
 import {
   AppstoreOutlined,
-  TeamOutlined,
   DropboxOutlined,
   SettingOutlined,
   ProductOutlined,
@@ -23,16 +21,11 @@ const items: MenuItem[] = [
   },
   {
     key: "2",
-    label: "Equipo",
-    icon: <TeamOutlined />,
-  },
-  {
-    key: "3",
     label: "Bodega",
     icon: <DropboxOutlined />,
   },
   {
-    key: "4",
+    key: "3",
     label: "Servicios",
     icon: <ProductOutlined />,
   },
@@ -47,10 +40,8 @@ export const MenuL = () => {
     if (e.key === "1") {
       navigate("/home");
     } else if (e.key === "2") {
-      navigate("/team");
-    } else if (e.key === "3") {
       navigate("/stock");
-    } else if (e.key === "4") {
+    } else if (e.key === "3") {
       navigate("/service");
     }
     setSelectedKey(e.key);
