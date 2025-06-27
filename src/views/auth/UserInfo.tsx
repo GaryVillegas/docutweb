@@ -103,46 +103,40 @@ export const UserInfo = () => {
 
   const FooterButtons = () => {
     if (!user) return;
-     {/*agrege styles a los botones <div>
+    return (
+      <div className={styles.footerButtons}>
         {currentSlide < steps.length - 1 && (
-          <button onClick={() => next()}>Siguiente</button>
+          <button className={styles.footerButton} onClick={next}>
+            Siguiente
+          </button>
         )}
         {currentSlide === steps.length - 1 && (
-          <button onClick={() => handleSubmit(user.uid)}>Terminar</button>
+          <button
+            className={styles.footerButton}
+            onClick={() => handleSubmit(user.uid)}
+          >
+            Terminar
+          </button>
         )}
-        {currentSlide > 0 && <button onClick={() => prev()}>Volver</button>}
+        {currentSlide > 0 && (
+          <button
+            className={`${styles.footerButton} ${styles.cancelButton}`}
+            onClick={prev}
+          >
+            Volver
+          </button>
+        )}
         {currentSlide === 0 && (
-          <button onClick={() => cancel(user)}>Cancelar</button>
+          <button
+            className={`${styles.footerButton} ${styles.cancelButton}`}
+            onClick={() => cancel(user)}
+          >
+            Cancelar
+          </button>
         )}
-      </div>asi estaba*/}
-    return (
-        
-
-      <div className={styles.footerButtons}>
-          {currentSlide < steps.length - 1 && (
-            <button className={styles.footerButton} onClick={next}>
-              Siguiente
-            </button>
-          )}
-          {currentSlide === steps.length - 1 && (
-            <button className={styles.footerButton} onClick={() => handleSubmit(user.uid)}>
-              Terminar
-            </button>
-          )}
-          {currentSlide > 0 && (
-            <button className={`${styles.footerButton} ${styles.cancelButton}`} onClick={prev}>
-              Volver
-            </button>
-          )}
-          {currentSlide === 0 && (
-            <button className={`${styles.footerButton} ${styles.cancelButton}`} onClick={() => cancel(user)}>
-              Cancelar
-            </button>
-          )}
-        </div>
-
-            );
-          };
+      </div>
+    );
+  };
 
   const cancel = async (user: any) => {
     try {
@@ -157,10 +151,8 @@ export const UserInfo = () => {
     if (!userInfo) return;
     return (
       <>
-      
         <div className={styles.tituloinfousuario}>Información de usuario</div>
         <Input
-        
           placeholder="Ingrese Nombre"
           onChange={handleInputChange}
           value={userInfo.name}
@@ -205,45 +197,31 @@ export const UserInfo = () => {
       </>
     );
   };
-        {/*agrege styles a los botones < const chooseCategory = () => {
-    if (!userInfo) return;
+  const chooseCategory = () => {
+    if (!userInfo) return null;
+
     return (
       <>
-        <div className={styles.tituloinfousuario}>Categorias de tienda</div>
-        {categories.map((category) => (
-          <button key={category} onClick={() => toggleCategory(category)}>
-            {category}
-          </button>
-        ))}
+        <div className={styles.tituloinfousuario}>Categorías de tienda</div>
+        <div className={styles.categoryGrid}>
+          {categories.map((category) => {
+            const isSelected = storeInfo.categories.includes(category);
+            return (
+              <button
+                key={category}
+                className={`${styles.categoryButton} ${
+                  isSelected ? styles.selectedCategory : ""
+                }`}
+                onClick={() => toggleCategory(category)}
+              >
+                {category}
+              </button>
+            );
+          })}
+        </div>
       </>
     );
   };
-        asi estaba*/}
-  const chooseCategory = () => {
-  if (!userInfo) return null;
-
-  return (
-    <>
-      <div className={styles.tituloinfousuario}>Categorías de tienda</div>
-     <div className={styles.categoryGrid}>
-  {categories.map((category) => {
-    const isSelected = storeInfo.categories.includes(category);
-    return (
-      <button
-        key={category}
-        className={`${styles.categoryButton} ${isSelected ? styles.selectedCategory : ""}`}
-        onClick={() => toggleCategory(category)}
-      >
-        {category}
-      </button>
-    );
-  })}
-</div>
-
-    </>
-  );
-};
-
 
   const stepsContent = [addUserInfo(), addStoreInfo(), chooseCategory()];
   const steps = [
@@ -259,11 +237,11 @@ export const UserInfo = () => {
         {/*aca al steps le puse un style para los puntos <Steps size="default" current={currentSlide} items={items} />
 asi estaba */}
         <Steps
-            size="default"
-            current={currentSlide}
-            items={items}
-            className={styles.stepsCustom}
-          />
+          size="default"
+          current={currentSlide}
+          items={items}
+          className={styles.stepsCustom}
+        />
         {/*aca al steps le puse un style <div>{stepsContent[currentSlide]}</div> */}
         <div className={styles.stepContent}>{stepsContent[currentSlide]}</div>
 

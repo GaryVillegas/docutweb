@@ -54,7 +54,7 @@ export const CreateService: React.FC<DrawerProps> = ({
       >
         <FontAwesomeIcon icon={faCirclePlus} /> Crear Servicio
       </button>
-      <Drawer title="Crear Servicio" onClose={onClose} open={open} width={500}>
+      <Drawer title="Nuevo Servicio" onClose={onClose} open={open} width={500}>
         <Form layout="vertical" onFinish={() => handleSubmit(storeId)}>
           <Form.Item
             label="Nombre Servico"

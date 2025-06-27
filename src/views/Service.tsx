@@ -77,10 +77,11 @@ export const Service = () => {
       <div
         style={{
           flex: 1,
-          backgroundColor: "var(--Gray-Color)",
+          backgroundColor: "var(--White-Color)",
           borderRadius: "10px",
           padding: "1rem",
           marginTop: "3.5rem",
+          border: "0.5px solid var(--Gray-Color)",
         }}
       ></div>
     </div>
