@@ -15,7 +15,6 @@ import type { userData, userInfo } from "../types/user.type";
 import type { storeData, storeInfo } from "../types/store.type";
 import type { service, serviceData } from "../types/service.type";
 import type { date, dateData } from "../types/date.type";
-import type { memberData, memberInfo } from "../types/team";
 
 class StoreService {
   //Funciones de creacion
@@ -95,19 +94,6 @@ class StoreService {
       console.log("cita successfully created!");
     } catch (error) {
       console.error("Error creating date: ", error);
-      throw error;
-    }
-  }
-
-  async createTeamMember(uid: string, memberInfo: memberInfo): Promise<void> {
-    try {
-      if (!uid || memberInfo) throw new Error("uid and userinfo are required");
-      await setDoc(doc(FIREBASE_DB, "teamMember", uid), {
-        memberInfo,
-      });
-      console.log("Member team successfully created!");
-    } catch (error) {
-      console.log("Error creating team member: ", error);
       throw error;
     }
   }
@@ -258,27 +244,6 @@ class StoreService {
       } as userData;
     } catch (error) {
       console.log("❌ error catching service: ", error);
-      throw error;
-    }
-  }
-
-  async getMemberData(storeId: string): Promise<memberData[] | undefined> {
-    try {
-      const memberQuery = query(
-        collection(FIREBASE_DB, "teamMember"),
-        where("memberInfo.storeId", "==", storeId)
-      );
-      const memberSnapshot = await getDocs(memberQuery);
-      const members = memberSnapshot.docs.map((member) => {
-        const memberData = member.data();
-        return {
-          memberUID: member.id,
-          memberInfo: memberData["memberInfo"],
-        } as memberData;
-      });
-      return members;
-    } catch (error) {
-      console.log("Error catching members: ", error);
       throw error;
     }
   }
