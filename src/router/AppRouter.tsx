@@ -6,7 +6,6 @@ import { Register } from "../views/auth/Register";
 import PrivateRoute from "../context/PrivateRoute";
 import { UserInfo } from "../views/auth/UserInfo";
 import { Layout } from "../views/Layout";
-import { Team } from "../views/Team";
 import { Stock } from "../views/Stock";
 import { Service } from "../views/Service";
 
@@ -30,16 +29,6 @@ export const AppRouter = () => {
           <PrivateRoute>
             <Layout>
               <Home />
-            </Layout>
-          </PrivateRoute>
-        }
-      />
-      <Route
-        path="/team"
-        element={
-          <PrivateRoute>
-            <Layout>
-              <Team />
             </Layout>
           </PrivateRoute>
         }
