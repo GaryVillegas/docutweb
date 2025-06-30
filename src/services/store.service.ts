@@ -98,22 +98,6 @@ class StoreService {
     }
   }
 
-<<<<<<< HEAD
-  async createTeamMember(uid: string, memberInfo: memberInfo): Promise<void> {
-    try {
-      if (!uid || !memberInfo) throw new Error("uid and userinfo are required");
-      await setDoc(doc(FIREBASE_DB, "teamMember", uid), {
-        memberInfo,
-      });
-      console.log("Member team successfully created!");
-    } catch (error) {
-      console.log("Error creating team member: ", error);
-      throw error;
-    }
-  }
-
-=======
->>>>>>> 0f88513a6400fced6ece82637e63ed6d5d28eaf1
   //Funciones para obtener los datos
   /**
    * @param userUID
