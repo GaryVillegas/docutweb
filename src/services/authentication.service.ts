@@ -35,12 +35,37 @@ class AuthenticationService {
 
   async registration(email: string, password: string) {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password);
+    } catch (error) {
+      console.error("Error al crear cuenta: ", error);
+      if (error instanceof Error && "code" in error) {
+        const firebaseError = error as { code: string };
+        if (
+          firebaseError.code === "auth/invalid-credential" ||
+          firebaseError.code === "auth/wrong-password"
+        ) {
+          throw error;
+        } else if (firebaseError.code === "auth/user-not-found") {
+          throw error;
+        } else {
+          throw error;
+        }
+      }
+      throw error;
+    }
+  }
+
+  async memberRegistration(email: string, password: string) {
+    try {
+      const userCreated = await createUserWithEmailAndPassword(
         FIREBASE_AUTH,
         email,
         password
       );
-      return userCredential.user.uid;
+      return {
+        uid: userCreated.user.uid,
+        user: userCreated.user,
+      };
     } catch (error) {
       console.error("Error al crear cuenta: ", error);
       if (error instanceof Error && "code" in error) {
